@@ -30,6 +30,7 @@ npm i & npm i ./be
 ### Compile and Hot-Reload for Development
 
 ```sh
+node ./be/app.js
 npm run dev
 ```
 

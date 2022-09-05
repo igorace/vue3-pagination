@@ -5,21 +5,20 @@ const currentPage = ref(0);
 const BE_URL = computed(() => {
   return `http://localhost:3000/users?page=${currentPage.value}`;
 });
-// just for fun
-type MyResults = {
+type ResultsItem = {
   id: number;
   name: string;
 };
-type MyDataResponse = {
+type ResultsResponse = {
   count: number;
-  results: MyResults[];
+  results: ResultsItem[];
 };
 const { data, isFetching, execute } = useFetch(BE_URL, {
   immediate: false,
   refetch: true,
 })
   .get()
-  .json<MyDataResponse>();
+  .json<ResultsResponse>();
 onMounted(() => {
   execute();
 });
